@@ -1,44 +1,59 @@
-/* Global Styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(-45deg, #1b1f3b, #4655c0, #6dc8f3, #0f4c75);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #fff;
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation Bar */
 nav {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
     position: fixed;
     top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
-    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: 700;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
     list-style: none;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin-left: 20px;
 }
 
 nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
+    font-size: 16px;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #00FF7F; /* Hellgrün */
+    color: #6dc8f3;
 }
 
 /* Hero Section */
@@ -47,47 +62,51 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     text-align: center;
-    color: white;
-    background: linear-gradient(135deg, #32CD32, #00FF7F);
-    background-size: 300% 300%;
-    animation: gradientMove 6s ease infinite;
+    padding: 20px;
+}
+
+.hero .content {
+    animation: fadeIn 2s ease-out;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: #6dc8f3;
 }
 
 .hero p {
     font-size: 1.5rem;
-    font-weight: 300;
+    margin: 20px 0;
 }
 
-/* Farbverlauf bewegen */
-@keyframes gradientMove {
+.cta-button {
+    display: inline-block;
+    background-color: #6dc8f3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.cta-button:hover {
+    background-color: #0f4c75;
+    transform: scale(1.1);
+}
+
+/* Keyframes */
+@keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Für kleinere Bildschirme (Responsive Design) */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
